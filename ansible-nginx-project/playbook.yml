@@ -1,0 +1,41 @@
+---
+- name: Deploy Dockerized Nginx on EC2
+  hosts: web
+  become: yes
+
+  tasks:
+    - name: Install required packages
+      ansible.builtin.apt:
+        name: "{{ item }}"
+        state: present
+        update_cache: yes
+      loop:
+        - docker.io
+        - python3-pip
+        - python3-docker
+
+    - name: Start Docker service
+      ansible.builtin.service:
+        name: docker
+        state: started
+        enabled: true
+
+    - name: Copy custom HTML file
+      ansible.builtin.copy:
+        src: files/index.html
+        dest: /home/ubuntu/index.html  # For Ubuntu use 'ubuntu' user
+
+    - name: Install Docker SDK for Python (for community.docker module)
+      ansible.builtin.apt:
+         name: python3-docker
+         state: present
+         update_cache: yes
+
+    - name: Run Nginx container with custom HTML
+      community.docker.docker_container:
+        name: nginx
+        image: nginx
+        ports:
+          - "80:80"
+        volumes:
+          - /home/ubuntu/index.html:/usr/share/nginx/html/index.html:ro
