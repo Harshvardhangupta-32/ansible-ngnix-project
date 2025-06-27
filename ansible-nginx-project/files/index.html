@@ -1,12 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Futuristic Login</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 40px;
+      width: 350px;
+      box-shadow: 0 8px 32px 0 rgba(0, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(0, 255, 255, 0.2);
+    }
+
+    .glass-card h2 {
+      color: #00ffff;
+      text-align: center;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+
+    .input-box {
+      margin-bottom: 20px;
+    }
+
+    .input-box input {
+      width: 100%;
+      padding: 12px;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid #00ffff;
+      color: #ffffff;
+      outline: none;
+      transition: 0.3s ease-in-out;
+    }
+
+    .input-box input:focus {
+      border-bottom: 2px solid #00ffcc;
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 12px;
+      background-color: #00ffff;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .login-btn:hover {
+      background-color: #00ffcc;
+      transform: scale(1.05);
+      box-shadow: 0 0 10px #00ffff;
+    }
+
+    .footer-text {
+      margin-top: 20px;
+      text-align: center;
+      color: #aaa;
+      font-size: 0.85em;
+    }
+  </style>
 </head>
 <body>
-    <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit voluptatem minus ipsam cum saepe voluptas, blanditiis aliquid laudantium quibusdam animi modi labore maiores ipsum totam praesentium veritatis nobis, molestiae repellat.</h1>
-    
+  <div class="glass-card">
+    <h2>Neo Login</h2>
+    <div class="input-box">
+      <input type="text" placeholder="Username" />
+    </div>
+    <div class="input-box">
+      <input type="password" placeholder="Password" />
+    </div>
+    <button class="login-btn">Enter</button>
+    <div class="footer-text">Welcome to the Future</div>
+  </div>
 </body>
 </html>
